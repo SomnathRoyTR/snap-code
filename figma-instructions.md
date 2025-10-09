@@ -2,49 +2,50 @@
 
 ## Instructions
 
-You will receive an ADO user story that may contain:
+You will receive Figma design links that may include:
 - **Single Figma Link:** Either full page or component view
 - **Two Figma Links:** Typically full page context + specific component
 - **Multiple Figma Links:** Various design views, states, or related components
 
 ---
 
-## Initial Assessment Protocol
+## Assessment Protocol
 
-- Parse the ADO story to count and categorize all Figma links
+- Count and categorize all Figma links received
 - Identify the type and purpose of each design view
 - Create a design inventory mapping
-- Adapt analysis approach based on available resources
+- Adapt analysis approach based on design resources available
 
 ---
 
 ## Implementation Steps
 
-### 1. ADO Story Analysis
-- Parse user story requirements and acceptance criteria
+### 1. Figma Design Analysis
+
+- Review design requirements and any notes provided
 - **Create Figma link inventory:**
 
 #### Figma Link Inventory
 
 - Total Links: `[Count]`
-- Link 1: `[URL]` - `[Type: Full Page/Component/State/Variant]`
-- Link 2: `[URL]` - `[Type: Description]`
-- Link N: `[URL]` - `[Type: Description]`
+- Link 1: `[URL]` — `[Type: Full Page/Component/State/Variant]`
+- Link 2: `[URL]` — `[Type: Description]`
+- Link N: `[URL]` — `[Type: Description]`
 
 - Identify primary implementation target
 - Note technical constraints, dependencies, and design system references
 
 ---
 
-### 2. Design Analysis Strategy
+### 2. Analysis Strategy
 
 #### Single Link Scenario
 - Determine view type (full page vs. component)
-- Extract maximum information from available design
+- Extract maximum information from the design
 - Document context gaps requiring clarification
 
 #### Two Links Scenario
-- Link 1: Analyze full page for context and placement
+- Link 1: Analyze full page for placement and context
 - Link 2: Deep dive into component specifications
 - Map relationships between context and component
 
@@ -69,7 +70,7 @@ You will receive an ADO user story that may contain:
 
 ### 3. Comprehensive Component Extraction
 
-From all available Figma designs, extract and consolidate:
+From all Figma designs, extract and consolidate:
 
 #### Core Specifications
 - **Dimensions:** Width, height, min/max constraints
@@ -170,9 +171,7 @@ Generate comprehensive implementation including:
 
 # Component Implementation Specification
 
-## ADO Story: `[Story ID]` - `[Title]`
-
-### Figma Design Inventory
+## Figma Design Inventory
 Total Figma Links Analyzed: `[Count]`
 
 | Link | URL    | Type                 | Coverage         |
@@ -214,7 +213,6 @@ Total Figma Links Analyzed: `[Count]`
 ```jsx
 /**
  * Component: [Name]
- * ADO Story: [ID]
  * Figma References: [Count] designs analyzed
  * 
  * Design Coverage:
@@ -257,7 +255,7 @@ Total Figma Links Analyzed: `[Count]`
 ### Single Link Strategy
 
 **Priority:** Extract maximum detail from available design  
-**Approach:** Heavy reliance on ADO story context  
+**Approach:** Heavy reliance on design notes/context  
 **Output:** Flexible component with documented assumptions
 
 ---
@@ -282,8 +280,8 @@ Total Figma Links Analyzed: `[Count]`
 
 **Example 1: Single Component Link**
 
-> "I've analyzed ADO story #12345 with one Figma link showing an isolated filter component.  
-> From the component design, I've extracted:  
+> "I’ve analyzed a single Figma link showing an isolated filter component.  
+> From the component design, I’ve extracted:  
 > - Dimensions: 320px × 48px  
 > - Styling: White background, gray border  
 > - Elements: Search icon, input, dropdown  
@@ -297,9 +295,9 @@ Total Figma Links Analyzed: `[Count]`
 
 **Example 2: Two Links – Context and Component**
 
-> "I've analyzed ADO story #12345 with two Figma links.  
+> "I’ve analyzed two Figma links.  
 > From the full page context, I see this is a data filter component positioned in the top-right of the dashboard, 24px from the header.  
-> From the component detail, I've extracted:  
+> From the component detail, I’ve extracted:  
 > - Dimensions: 320px × 48px  
 > - Background: #FFFFFF with 1px border (#E0E0E0)  
 > - Contains: Search icon (16×16), input field, and dropdown arrow  
@@ -309,12 +307,12 @@ Total Figma Links Analyzed: `[Count]`
 
 **Example 3: Multiple Links with States**
 
-> "I've analyzed ADO story #12345 with 4 Figma links:  
+> "I’ve analyzed 4 Figma links:  
 > 1. Full dashboard view – Shows component in header  
 > 2. Component default state – 320px × 48px search bar  
 > 3. Component active state – Expanded with dropdown  
 > 4. Component mobile view – Full width adaptation  
-> I've identified:  
+> I’ve identified:  
 > - 3 interaction states (default, focus, active)  
 > - 2 responsive breakpoints (desktop, mobile)  
 > - Missing: Disabled state, tablet breakpoint  
@@ -324,13 +322,13 @@ Total Figma Links Analyzed: `[Count]`
 
 **Example 4: Comprehensive Multi-Link Analysis**
 
-> "ADO story #67890 contains 6 Figma links covering:  
-> - 2 layout contexts (dashboard, detail page)  
-> - 3 component states (default, hover, selected)  
-> - 1 error state variation  
-> I notice the component appears in different contexts with slight variations:  
-> - Dashboard: Compact mode (200px width)  
-> - Detail page: Expanded mode (320px width)  
+> "The Figma package includes 6 links:
+> - 2 layout contexts (dashboard, detail page)
+> - 3 component states (default, hover, selected)
+> - 1 error state variation
+> I notice the component appears in different contexts with slight variations:
+> - Dashboard: Compact mode (200px width)
+> - Detail page: Expanded mode (320px width)
 > Should I create a single flexible component with size variants, or separate components?"
 
 ---
@@ -342,7 +340,7 @@ Total Figma Links Analyzed: `[Count]`
 - **Document Everything:** Clear notes on what's provided vs. inferred
 - **Progressive Enhancement:** Build from minimum viable to fully featured
 - **Maintain Flexibility:** Components should adapt to context variations
-- **Seek Clarification Early:** Don't assume critical specifications
+- **Seek Clarification Early:** Don’t assume critical specifications
 
 ---
 
