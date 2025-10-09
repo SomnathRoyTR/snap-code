@@ -1,5 +1,5 @@
 ## **Instructions**
-You will build one or more web pages within an existing codebase that strictly uses the **Saffron** from the [instructions](./instructions) folder. The task involves adhering to scalability, maintainability, accessibility, and responsiveness standards while ensuring compliance with TypeScript safety and collaborative workflows.
+You will build one or more web pages within an existing codebase that strictly uses the **Saffron** from the [saffron documentation](./instructions/Saffron_Mardown_Documentation) folder. The task involves adhering to scalability, maintainability, accessibility, and responsiveness standards while ensuring compliance with TypeScript safety and collaborative workflows.
  
 ### **Ultimate Objective**
 1. Transform the provided UI designs, user requirements, and APIs into components and layouts using the **Saffron**.
