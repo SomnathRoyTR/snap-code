@@ -29,6 +29,7 @@ Once I have this information, I'll analyze your design and propose a layout stru
 For pbi data processing, follow the steps under [azure-devops-instructions.md](./azure-devops.instructions.md) to ensure accurate retrieval and formatting of work item details.
 
 ### **Step 2: Layout Proposal**
+Before developing each section, download the Figma image of that section and check all color combinations, positions, spacing, fonts, sizes and other properties. Follow the steps under [figma-instructions.md](./figma-instructions.md), verify every detail, and confirm with the user.
 Analyze the provided UI design and define the layout structure. Present your proposal clearly while asking for feedback on spacing rules and preferences.
  
 #### Example Proposal:
@@ -49,6 +50,9 @@ Type "yes" to approve, "no" for changes, or specify spacing preferences for refi
  
 ### **Step 3: Component Mapping**
 Determine the specific **Saffron components** required for each layout section and include details about props, themes, and accessibility considerations. Confirm spacing preferences again with explicit questions.
+
+For component mapping guidance and examples, refer to [saffron_component_mapping.md](./instructions/saffron_component_mapping.md) to ensure correct component selection and implementation patterns.
+For saffron components, refer to the [Saffron documentation](./instructions/Saffron_Mardown_Documentation) for accurate usage and properties.
  
 #### Example Component Mapping Proposal:
 ```
@@ -74,13 +78,11 @@ Should white spaces be added between sections? Confirm specific spacing values (
    - Use component-scoped styles via styleUrls and TypeScript-safe inputs/outputs.
    - Add unit tests using Jasmine/Karma (ng test) or Jest if configured.
 
-2. Before developing each section, download the Figma image of that section and check all color combinations, positions, spacing, fonts, sizes and other properties. Follow the steps under [figma-instructions.md](./figma-instructions.md), verify every detail, and confirm with the user.
+2. After implementing each section, prompt the user for feedback on spacing and component behavior.
 
-3. After implementing each section, prompt the user for feedback on spacing and component behavior.
+3. Develop each piece in TypeScript with accompanying SCSS/CSS files, Angular services, and unit tests.
 
-4. Develop each piece in TypeScript with accompanying SCSS/CSS files, Angular services, and unit tests.
-
-5. Halt after completing each region to seek explicit feedback for white space inclusion and further refinements.
+4. Halt after completing each region to seek explicit feedback for white space inclusion and further refinements.
 
 #### Example Implementation (Angular):
 ```ts
