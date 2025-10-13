@@ -8,8 +8,50 @@ You will build one or more web pages within an existing codebase that strictly u
 ---
  
 ## **Steps to Follow**
- 
 
+### **Step 0: Create Todo List**
+After gathering the initial requirements, create a comprehensive todo list to track progress through all implementation phases. This list should be updated after each completed step.
+
+#### Example Todo List Format:
+```
+**IMPLEMENTATION TODO LIST:**
+
+Step 1: Gather Input
+  Collect PBI link/ID
+  Review UI Design
+  Document user requirements
+  Identify data sources/APIs
+  Confirm spacing preferences
+
+Step 2: Layout Proposal
+  Download Figma images for each section
+  Analyze UI design structure
+  Define layout sections
+  Verify colors, spacing, fonts, sizes
+  Get user approval on layout
+
+Step 3: Component Mapping
+  Map Saffron components to each section
+  Define props and themes
+  Document accessibility requirements
+  Confirm spacing between sections
+
+Step 4: Incremental Implementation
+  Section 1: [Name] - Implementation & Approval
+  Section 2: [Name] - Implementation & Approval
+  Section 3: [Name] - Implementation & Approval
+  [Add more sections as needed]
+
+Step 5: Final Review & Refinements
+  Cross-browser testing
+  Accessibility audit
+  Responsive design verification
+  Final user approval
+```
+
+**Update this todo list after each completed task, marking items with ✓ when done.**
+
+---
 
 ## **Step 1: Gather Input**
 ```
