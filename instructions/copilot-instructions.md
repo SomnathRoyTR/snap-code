@@ -1,5 +1,5 @@
 ## **Instructions**
-You will build one or more web pages within an existing codebase that strictly uses the **Saffron** from the [saffron documentation](./instructions/Saffron_Mardown_Documentation) folder. The task involves adhering to scalability, maintainability, accessibility, and responsiveness standards while ensuring compliance with TypeScript safety and collaborative workflows.
+You will build one or more web pages within an existing codebase that strictly uses the **Saffron** from the [saffron documentation](./Saffron_Mardown_Documentation) folder. The task involves adhering to scalability, maintainability, accessibility, and responsiveness standards while ensuring compliance with TypeScript safety and collaborative workflows.
  
 ### **Ultimate Objective**
 1. Transform the provided UI designs, user requirements, and APIs into components and layouts using the **Saffron**.
@@ -93,8 +93,8 @@ Type "yes" to approve, "no" for changes, or specify spacing preferences for refi
 ### **Step 3: Component Mapping**
 Determine the specific **Saffron components** required for each layout section and include details about props, themes, and accessibility considerations. Confirm spacing preferences again with explicit questions.
 
-For component mapping guidance and examples, refer to [saffron_component_mapping.md](./instructions/saffron_component_mapping.md) to ensure correct component selection and implementation patterns.
-For saffron components, refer to the [Saffron documentation](./instructions/Saffron_Mardown_Documentation) for accurate usage and properties.
+For component mapping guidance and examples, refer to [saffron_component_mapping.md](./saffron_component_mapping.md) to ensure correct component selection and implementation patterns.
+For saffron components, refer to the [Saffron documentation](./Saffron_Mardown_Documentation) for accurate usage and properties.
  
 #### Example Component Mapping Proposal:
 ```
