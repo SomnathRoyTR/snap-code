@@ -8,8 +8,50 @@ You will build one or more web pages within an existing codebase that strictly u
 ---
  
 ## **Steps to Follow**
- 
 
+### **Step 0: Create Todo List**
+After gathering the initial requirements, create a comprehensive todo list to track progress through all implementation phases. This list should be updated after each completed step.
+
+#### Example Todo List Format:
+```
+**IMPLEMENTATION TODO LIST:**
+
+Step 1: Gather Input
+  Collect PBI link/ID
+  Review UI Design
+  Document user requirements
+  Identify data sources/APIs
+  Confirm spacing preferences
+
+Step 2: Layout Proposal
+  Download Figma images for each section
+  Analyze UI design structure
+  Define layout sections
+  Verify colors, spacing, fonts, sizes
+  Get user approval on layout
+
+Step 3: Component Mapping
+  Map Saffron components to each section
+  Define props and themes
+  Document accessibility requirements
+  Confirm spacing between sections
+
+Step 4: Incremental Implementation
+  Section 1: [Name] - Implementation & Approval
+  Section 2: [Name] - Implementation & Approval
+  Section 3: [Name] - Implementation & Approval
+  [Add more sections as needed]
+
+Step 5: Final Review & Refinements
+  Cross-browser testing
+  Accessibility audit
+  Responsive design verification
+  Final user approval
+```
+
+**Update this todo list after each completed task, marking items with ✓ when done.**
+
+---
 
 ## **Step 1: Gather Input**
 ```
@@ -29,6 +71,7 @@ Once I have this information, I'll analyze your design and propose a layout stru
 For pbi data processing, follow the steps under [azure-devops-instructions.md](./azure-devops.instructions.md) to ensure accurate retrieval and formatting of work item details.
 
 ### **Step 2: Layout Proposal**
+Before developing each section, download the Figma image of that section and check all color combinations, positions, spacing, fonts, sizes and other properties. Follow the steps under [figma-instructions.md](./figma-instructions.md), verify every detail, and confirm with the user.
 Analyze the provided UI design and define the layout structure. Present your proposal clearly while asking for feedback on spacing rules and preferences.
  
 #### Example Proposal:
@@ -49,6 +92,9 @@ Type "yes" to approve, "no" for changes, or specify spacing preferences for refi
  
 ### **Step 3: Component Mapping**
 Determine the specific **Saffron components** required for each layout section and include details about props, themes, and accessibility considerations. Confirm spacing preferences again with explicit questions.
+
+For component mapping guidance and examples, refer to [saffron_component_mapping.md](./instructions/saffron_component_mapping.md) to ensure correct component selection and implementation patterns.
+For saffron components, refer to the [Saffron documentation](./instructions/Saffron_Mardown_Documentation) for accurate usage and properties.
  
 #### Example Component Mapping Proposal:
 ```
@@ -74,13 +120,11 @@ Should white spaces be added between sections? Confirm specific spacing values (
    - Use component-scoped styles via styleUrls and TypeScript-safe inputs/outputs.
    - Add unit tests using Jasmine/Karma (ng test) or Jest if configured.
 
-2. Before developing each section, download the Figma image of that section and check all color combinations, positions, spacing, fonts, sizes and other properties. Follow the steps under [figma-instructions.md](./figma-instructions.md), verify every detail, and confirm with the user.
+2. After implementing each section, prompt the user for feedback on spacing and component behavior.
 
-3. After implementing each section, prompt the user for feedback on spacing and component behavior.
+3. Develop each piece in TypeScript with accompanying SCSS/CSS files, Angular services, and unit tests.
 
-4. Develop each piece in TypeScript with accompanying SCSS/CSS files, Angular services, and unit tests.
-
-5. Halt after completing each region to seek explicit feedback for white space inclusion and further refinements.
+4. Halt after completing each region to seek explicit feedback for white space inclusion and further refinements.
 
 #### Example Implementation (Angular):
 ```ts
