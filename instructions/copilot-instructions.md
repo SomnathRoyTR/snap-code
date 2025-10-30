@@ -1,5 +1,12 @@
 ## **Instructions**
-You will build one or more web pages within an existing codebase that strictly uses the **Saffron** from the [saffron documentation](./Saffron_Mardown_Documentation) folder. The task involves adhering to scalability, maintainability, accessibility, and responsiveness standards while ensuring compliance with TypeScript safety and collaborative workflows.
+You will build one or more web pages within an existing codebase that strictly uses the **Saffron Design System**. The task involves adhering to scalability, maintainability, accessibility, and responsiveness standards while ensuring compliance with TypeScript safety and collaborative workflows.
+
+**For Saffron component information, use the [Saffron MCP Server](./saffron-mcp-server.md)** to access:
+- Production-ready code examples
+- Component accessibility attributes
+- HTML to Saffron component mappings
+- Design token information
+- Visual component screenshots
  
 ### **Ultimate Objective**
 1. Transform the provided UI designs, user requirements, and APIs into components and layouts using the **Saffron**.
@@ -94,7 +101,12 @@ Type "yes" to approve, "no" for changes, or specify spacing preferences for refi
 Determine the specific **Saffron components** required for each layout section and include details about props, themes, and accessibility considerations. Confirm spacing preferences again with explicit questions.
 
 For component mapping guidance and examples, refer to [saffron_component_mapping.md](./saffron_component_mapping.md) to ensure correct component selection and implementation patterns.
-For saffron components, refer to the [Saffron documentation](./Saffron_Mardown_Documentation) for accurate usage and properties.
+
+**For Saffron component details, use the MCP server tools (see [saffron-mcp-server.md](./saffron-mcp-server.md)):**
+- Use `get-saffron-code` to generate component code examples
+- Use `get-saffron-code-equivalent` to find Saffron equivalents for HTML elements
+- Use `get-saffron-a11y-attributes` to get accessibility specifications
+- Use `get-saffron-tokens` to find design tokens for CSS values
  
 #### Example Component Mapping Proposal:
 ```
