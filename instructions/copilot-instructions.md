@@ -126,6 +126,17 @@ Should white spaces be added between sections? Confirm specific spacing values (
 
 4. Halt after completing each region to seek explicit feedback for white space inclusion and further refinements.
 
+5. **Build Verification:** After implementing each section, verify the project builds successfully:
+   - Run the build command (e.g., `ng build` for Angular, `npm run build` for other frameworks)
+   - If build errors occur, fix them immediately before proceeding
+   - Ensure TypeScript compilation passes without errors
+
+6. **Visual Verification:** After successful build, request a screenshot from the user:
+   - Ask the user to provide a screenshot of the implemented section
+   - Compare the screenshot with the original Figma design
+   - Verify colors, spacing, fonts, sizes, and positioning match the design
+   - Request adjustments if discrepancies are found
+
 #### Example Implementation (Angular):
 ```ts
 // Header component (Angular)
@@ -174,8 +185,21 @@ export class SidebarComponent {}
 
 Prompt the user:
 ```
-Does the Header meet design expectations?
+The [Section Name] has been implemented. Let me verify the build...
+
+[After running build command]
+
+✓ Build completed successfully! 
+
+Now, please provide a screenshot of the implemented section so I can compare it with the Figma design to verify:
+- Colors match the design specifications
+- Spacing and positioning are accurate
+- Font sizes and styles are correct
+- Overall layout aligns with the design
+
+Does the section meet design expectations?
 - Should there be any white spaces around it? If yes, specify spacing (e.g., "Add margin: 20px").
+- Are there any visual discrepancies that need adjustment?
 ```
 
  
