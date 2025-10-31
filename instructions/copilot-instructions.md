@@ -90,7 +90,7 @@ Before developing each section, download the Figma image of that section and che
 #### **File Organization and Naming**
 Ask the user about their preferred:
 - **File structure:** Where should the new components/pages be placed? (e.g., `src/app/features/`, `src/components/`)
-- **Naming conventions:** What naming pattern should be followed? (e.g., kebab-case, camelCase, PascalCase)
+- **Naming conventions:** naming should be understood from existing naming(e.g., kebab-case, camelCase, PascalCase)
 - **File organization:** Should components be grouped by feature, type, or other criteria?
 
 Analyze the provided UI design and define the layout structure. Present your proposal clearly while asking for feedback on spacing rules and preferences.
