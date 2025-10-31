@@ -1186,4 +1186,4 @@ When creating any new component, verify:
 5. **Accessibility Always:** Include proper ARIA labels and semantic structure
 6. **Consistency Everywhere:** Use Saffron components for visual consistency
 
-**Remember:** When in doubt, search this guide or check the Saffron documentation. There's likely a component for your use case!
+**Remember:** When in doubt, search this guide or use the [Saffron MCP Server](./saffron-mcp-server.md) to get component code examples, accessibility attributes, and design tokens. There's likely a component for your use case!
