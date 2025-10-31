@@ -77,8 +77,22 @@ Once I have this information, I'll analyze your design and propose a layout stru
 ```
 For pbi data processing, follow the steps under [azure-devops-instructions.md](./azure-devops.instructions.md) to ensure accurate retrieval and formatting of work item details.
 
+For accessibility requirements and standards, refer to [sharepoint-instructions.md](./sharepoint-instructions.md) to access organizational accessibility guidelines and ensure compliance throughout the implementation process.
+
 ### **Step 2: Layout Proposal**
 Before developing each section, download the Figma image of that section and check all color combinations, positions, spacing, fonts, sizes and other properties. Follow the steps under [figma-instructions.md](./figma-instructions.md), verify every detail, and confirm with the user.
+
+#### **Similar Code Analysis**
+- **Check for existing similar implementations:** Search the codebase for components or pages with similar layouts or functionality
+- **If similar code is found:** Present it to the user as a reference and ask if they want to follow the same patterns
+- **If no similar code is found:** Ask the user to provide reference implementations or preferred coding patterns from their existing codebase
+
+#### **File Organization and Naming**
+Ask the user about their preferred:
+- **File structure:** Where should the new components/pages be placed? (e.g., `src/app/features/`, `src/components/`)
+- **Naming conventions:** naming should be understood from existing naming(e.g., kebab-case, camelCase, PascalCase)
+- **File organization:** Should components be grouped by feature, type, or other criteria?
+
 Analyze the provided UI design and define the layout structure. Present your proposal clearly while asking for feedback on spacing rules and preferences.
  
 #### Example Proposal:
@@ -107,6 +121,57 @@ For component mapping guidance and examples, refer to [saffron_component_mapping
 - Use `get-saffron-code-equivalent` to find Saffron equivalents for HTML elements
 - Use `get-saffron-a11y-attributes` to get accessibility specifications
 - Use `get-saffron-tokens` to find design tokens for CSS values
+
+#### **PBI Analysis and Task Creation**
+When a PBI (Product Backlog Item) link or ID is provided:
+
+1. **Extract PBI Details:** Use the azure-devops tools to gather:
+   - PBI title and description
+   - Acceptance criteria
+   - Requirements and specifications
+   - Any linked tasks or sub-items
+
+2. **Create Detailed Task List:** Based on the PBI analysis, break down the work into specific, actionable tasks:
+   ```
+   **DETAILED TASK BREAKDOWN FROM PBI:**
+   
+   **PBI:** [Title] - [ID]
+   **Acceptance Criteria:**
+   - [Criterion 1]
+   - [Criterion 2]
+   - [Criterion 3]
+   
+   **Implementation Tasks:**
+   1. **Setup & Planning**
+      - [ ] Analyze Figma design components
+      - [ ] Map Saffron components to design elements
+      - [ ] Define file structure and naming conventions
+      - [ ] Identify data sources and API endpoints
+   
+   2. **Component Development**
+      - [ ] Create [Component Name 1] with props: [list props]
+      - [ ] Create [Component Name 2] with accessibility features
+      - [ ] Implement responsive design for mobile/tablet/desktop
+   
+   3. **Integration & Testing**
+      - [ ] Integrate components into main layout
+      - [ ] Add unit tests for each component
+      - [ ] Verify accessibility compliance (WCAG 2.1)
+      - [ ] Test responsive breakpoints
+   
+   4. **Validation Against Acceptance Criteria**
+      - [ ] Verify [Criterion 1] implementation
+      - [ ] Verify [Criterion 2] implementation
+      - [ ] Verify [Criterion 3] implementation
+   
+   5. **Final Review**
+      - [ ] Code review and TypeScript safety check
+      - [ ] Visual comparison with Figma design
+      - [ ] Performance optimization
+      - [ ] Documentation update
+   ```
+
+3. **Progress Tracking:** Update task completion status throughout implementation and reference specific acceptance criteria when validating each feature.
  
 #### Example Component Mapping Proposal:
 ```
@@ -505,11 +570,6 @@ Below are accessibility rules for each listed component. These rules ensure comp
 - Ensure minimum color contrast ratio (WCAG 2.x AA: 4.5:1 normal text, 3:1 large text).
 - All interactive elements must be focusable, operable with keyboard, and have visible focus indicators.
 - All dynamic content changes should be announced through relevant ARIA live regions.
-- For extended guidance, see:
-  - [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
-  - [WCAG 2.1 Guidelines](https://www.w3.org/TR/WCAG21/)
-
----
  
 ## **Constraints**
 1. All code must be **TypeScript-safe** and comply with project scalability, accessibility, and responsiveness rules.
