@@ -24,36 +24,65 @@ After gathering the initial requirements, create a comprehensive todo list to tr
 **IMPLEMENTATION TODO LIST:**
 
 Step 1: Gather Input
-  Collect PBI link/ID
-  Review UI Design
-  Document user requirements
-  Identify data sources/APIs
-  Confirm spacing preferences
+  ☐ Collect PBI link/ID
+  ☐ Review UI Design (Figma links)
+  ☐ Document user requirements
+  ☐ Identify data sources/APIs
+  ☐ Confirm spacing preferences
 
-Step 2: Layout Proposal
-  Download Figma images for each section
-  Analyze UI design structure
-  Define layout sections
-  Verify colors, spacing, fonts, sizes
-  Get user approval on layout
+Step 2: Figma Analysis & Layout Proposal
+  ☐ Download ALL Figma images (ensure images, not JSON)
+  ☐ Save Figma images to workspace
+  ☐ Identify all UI components from images
+  ☐ Create component inventory table
+  ☐ Map each component to Saffron Design System
+  ☐ Detect tables and determine implementation (saf-data-grid vs Wijmo)
+  ☐ Extract visual specifications (colors, spacing, fonts, sizes)
+  ☐ Map colors/fonts/spacing to Saffron design tokens
+  ☐ Define layout sections
+  ☐ Get user approval on layout and component mapping
 
-Step 3: Component Mapping
-  Map Saffron components to each section
-  Define props and themes
-  Document accessibility requirements
-  Confirm spacing between sections
+Step 3: Component Mapping & Code Retrieval
+  ☐ Use Saffron MCP to get component code for each mapped component
+  ☐ Retrieve accessibility attributes for all components
+  ☐ Get design token mappings
+  ☐ For tables: Get complete Wijmo configuration (if selected)
+  ☐ Document all component props and themes
+  ☐ Confirm spacing between sections
 
 Step 4: Incremental Implementation
-  Section 1: [Name] - Implementation & Approval
-  Section 2: [Name] - Implementation & Approval
-  Section 3: [Name] - Implementation & Approval
+  ☐ Section 1: [Name]
+     ☐ Implement with Saffron components only
+     ☐ Use design tokens for styling
+     ☐ Build verification (no errors)
+     ☐ Request user screenshot
+     ☐ Compare screenshot with Figma image
+     ☐ Fix discrepancies
+     ☐ Get user approval
+  ☐ Section 2: [Name]
+     ☐ Implement with Saffron components only
+     ☐ Use design tokens for styling
+     ☐ Build verification (no errors)
+     ☐ Request user screenshot
+     ☐ Compare screenshot with Figma image
+     ☐ Fix discrepancies
+     ☐ Get user approval
+  ☐ Section 3: [Name]
+     ☐ [Same steps as above]
   [Add more sections as needed]
 
-Step 5: Final Review & Refinements
-  Cross-browser testing
-  Accessibility audit
-  Responsive design verification
-  Final user approval
+Step 5: Final Review & Visual Validation
+  ☐ Request complete implementation screenshots
+  ☐ Comprehensive visual comparison with ALL Figma images
+  ☐ Create discrepancy report
+  ☐ Fix all identified issues
+  ☐ Re-validate with new screenshots
+  ☐ Cross-browser testing
+  ☐ Accessibility audit (WCAG 2.1 AA)
+  ☐ Responsive design verification
+  ☐ Performance check
+  ☐ Final user approval
+  ☐ Documentation complete
 ```
 
 **Update this todo list after each completed task, marking items with ✓ when done.**
@@ -79,8 +108,75 @@ For pbi data processing, follow the steps under [azure-devops-instructions.md](.
 
 For accessibility requirements and standards, refer to [sharepoint-instructions.md](./sharepoint-instructions.md) to access organizational accessibility guidelines and ensure compliance throughout the implementation process.
 
-### **Step 2: Layout Proposal**
-Before developing each section, download the Figma image of that section and check all color combinations, positions, spacing, fonts, sizes and other properties. Follow the steps under [figma-instructions.md](./figma-instructions.md), verify every detail, and confirm with the user.
+### **Step 2: Layout Proposal & Figma Analysis**
+
+**CRITICAL: Follow the complete Figma workflow in [figma-instructions.md](./figma-instructions.md)**
+
+This step requires:
+1. **Download all Figma designs as images** (NOT JSON)
+2. **Visual component analysis** from downloaded images
+3. **Component identification and cataloging**
+4. **Saffron component mapping** for every UI element
+5. **Table detection and implementation planning** (if tables present)
+
+#### **Figma Image Download & Analysis**
+
+For each Figma link provided:
+```
+Step 2A: DOWNLOAD FIGMA IMAGES
+- Extract Figma file ID and node ID from URLs
+- Use MCP server to fetch images (ensure image format, not JSON)
+- Save images to workspace for analysis
+- Confirm successful downloads before proceeding
+
+Step 2B: VISUAL COMPONENT IDENTIFICATION
+- Analyze downloaded images to identify ALL UI components
+- Create component inventory: buttons, inputs, tables, cards, navigation, icons, typography, etc.
+- Document component hierarchy and relationships
+- Verify colors, spacing, fonts, sizes, positions, and other visual properties
+
+Step 2C: SAFFRON COMPONENT MAPPING
+For EACH identified component, map to Saffron Design System:
+- Consult saffron_component_mapping.md for correct components
+- Document mapping (e.g., "Primary Button" → "<saf-button appearance='primary'>")
+- Use Saffron MCP server to retrieve component code and accessibility attributes
+- Map all colors, fonts, and spacing to Saffron design tokens
+```
+
+#### **Table Detection & Implementation Planning**
+
+**IF a table/grid is detected in the Figma images:**
+
+1. Analyze table complexity and features
+2. Search workspace for existing table implementations
+3. **Ask user for table implementation preference:**
+
+```
+🔍 TABLE DETECTED in Figma design
+
+I've identified a data table with [describe features from image].
+
+Please specify which implementation to use:
+   a) saf-data-grid (basic Saffron table - simple data display)
+   b) Wijmo FlexGrid (advanced features - sorting, filtering, editing, etc.)
+   c) Existing pattern from your codebase
+   d) Custom implementation
+
+If Wijmo selected, which features are needed?
+   □ Sorting
+   □ Filtering  
+   □ Inline editing
+   □ Grouping
+   □ Pagination
+   □ Export (Excel/CSV)
+   □ Other: [specify]
+```
+
+4. **If Wijmo selected:** Use Saffron MCP server to get:
+   - Complete Wijmo package imports
+   - Full implementation code
+   - Saffron integration patterns
+   - All requested features configuration
 
 #### **Similar Code Analysis**
 - **Check for existing similar implementations:** Search the codebase for components or pages with similar layouts or functionality
@@ -90,23 +186,59 @@ Before developing each section, download the Figma image of that section and che
 #### **File Organization and Naming**
 Ask the user about their preferred:
 - **File structure:** Where should the new components/pages be placed? (e.g., `src/app/features/`, `src/components/`)
-- **Naming conventions:** naming should be understood from existing naming(e.g., kebab-case, camelCase, PascalCase)
+- **Naming conventions:** naming should be understood from existing naming (e.g., kebab-case, camelCase, PascalCase)
 - **File organization:** Should components be grouped by feature, type, or other criteria?
 
-Analyze the provided UI design and define the layout structure. Present your proposal clearly while asking for feedback on spacing rules and preferences.
+#### **Layout Proposal with Saffron Components**
+
+Analyze the downloaded Figma images and define the layout structure with Saffron component mappings:
  
 #### Example Proposal:
 ```
+**FIGMA ANALYSIS COMPLETE:**
+✅ Downloaded 3 Figma images (desktop.png, component-details.png, mobile.png)
+✅ Component inventory created
+✅ Saffron components mapped
+
 **LAYOUT PROPOSAL:**  
-- The page design includes the following sections:  
-   1. **Header:** Full-width at the top; includes navigation and search.  
-   2. **Sidebar:** Left-aligned, vertical menu panel.  
-   3. **Main Content:** A responsive grid for forms/cards.  
- 
+The page design includes the following sections:
+
+1. **Header:** Full-width at the top
+   - Figma: Navigation bar with logo, search, and user menu
+   - Saffron: <saf-product-header> with <saf-search-input>
+   - Components identified: Logo, Search bar, User avatar, Notification badge
+
+2. **Sidebar:** Left-aligned vertical menu panel (260px width)
+   - Figma: Navigation menu with icons and labels
+   - Saffron: <saf-side-nav> with <saf-icon> and <saf-text>
+   - Components identified: Menu items, Icons, Active state indicator
+
+3. **Main Content:** Responsive grid layout
+   - Figma: Data table with filters and action buttons
+   - Saffron: <saf-data-grid> OR Wijmo FlexGrid (awaiting your selection)
+   - Components identified: Table, Filter dropdowns, Action buttons, Pagination
+
+4. **Footer:** (if present)
+   - Saffron components mapped
+
+**TABLE IMPLEMENTATION DECISION NEEDED:**
+I detected a data table in the main content area. Please specify:
+- Use saf-data-grid or Wijmo FlexGrid?
+- Required features: [list based on visual analysis]
+
+**SAFFRON COMPONENT SUMMARY:**
+- Buttons: <saf-button> (Primary: 2, Secondary: 3)
+- Inputs: <saf-text-field> (Search: 1, Filters: 2)
+- Table: [Awaiting selection]
+- Cards: <saf-card> (Count: 4)
+- Icons: <saf-icon> (Count: 12)
+- Typography: <saf-text> (Various appearances mapped)
+
 **Spacing Query:**  
 Should we include white spaces between the following sections?  
-- Header ↔ Sidebar: Yes/No?  
-- Sidebar ↔ Main Content: Yes/No?  
+- Header ↔ Sidebar: Yes/No? (Figma shows: [X]px)
+- Sidebar ↔ Main Content: Yes/No? (Figma shows: [X]px)
+- Between cards in grid: [X]px (from Figma)
  
 Type "yes" to approve, "no" for changes, or specify spacing preferences for refinement.
 ```
@@ -191,30 +323,40 @@ Should white spaces be added between sections? Confirm specific spacing values (
 ```
  
 ## **Step 4: Incremental Implementation**
-1. Implement each section incrementally. For Angular projects, follow Angular conventions:
+1. Implement each section incrementally using **ONLY Saffron Design System components**. For Angular projects, follow Angular conventions:
    - Create a feature module if the page is a standalone area (ng generate module feature --routing).
    - Generate isolated components per section (ng generate component header --module=feature).
    - Use component-scoped styles via styleUrls and TypeScript-safe inputs/outputs.
    - Add unit tests using Jasmine/Karma (ng test) or Jest if configured.
 
-2. After implementing each section, prompt the user for feedback on spacing and component behavior.
+2. **Use Saffron components exclusively** - NO native HTML elements (refer to saffron_component_mapping.md)
 
-3. Develop each piece in TypeScript with accompanying SCSS/CSS files, Angular services, and unit tests.
+3. **For table implementations:**
+   - If saf-data-grid: Use Saffron MCP to get complete code
+   - If Wijmo: Use Saffron MCP to get full package imports, configuration, and all requested features
 
-4. Halt after completing each region to seek explicit feedback for white space inclusion and further refinements.
+4. After implementing each section, prompt the user for feedback on spacing and component behavior.
 
-5. **Build Verification:** After implementing each section, verify the project builds successfully:
+5. Develop each piece in TypeScript with accompanying SCSS/CSS files (using Saffron design tokens only), Angular services, and unit tests.
+
+6. Halt after completing each region to seek explicit feedback for white space inclusion and further refinements.
+
+7. **Build Verification:** After implementing each section, verify the project builds successfully:
    - Run the build command (e.g., `ng build` for Angular, `npm run build` for other frameworks)
    - If build errors occur, fix them immediately before proceeding
    - Ensure TypeScript compilation passes without errors
 
-6. **Visual Verification:** After successful build, request a screenshot from the user:
+8. **Visual Verification (CRITICAL):** After successful build, request a screenshot from the user:
    - Ask the user to provide a screenshot of the implemented section
-   - Compare the screenshot with the original Figma design
-   - Verify colors, spacing, fonts, sizes, and positioning match the design
-   - Request adjustments if discrepancies are found
+   - **Compare the screenshot with the original downloaded Figma image**
+   - Use the visual comparison protocol from figma-instructions.md Step 8
+   - Verify: colors, spacing, fonts, sizes, positioning, component states
+   - Create a discrepancy report if needed
+   - Request adjustments and fix issues immediately
+   - Re-request screenshot after fixes
+   - Repeat until pixel-perfect match achieved
 
-#### Example Implementation (Angular):
+#### Example Implementation (Angular with Saffron):
 ```ts
 // Header component (Angular)
 // filepath: src/app/feature/header/header.component.ts
@@ -225,65 +367,202 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  productName = 'LegalTracker';
+}
 ```
 
 ```html
 <!-- filepath: src/app/feature/header/header.component.html -->
-<!-- Use Saffron web components directly or an Angular wrapper if available -->
-<saf-product-header product-name="LegalTracker" aria-label="Main Header"></saf-product-header>
-```
-
-```ts
-// Sidebar component (Angular)
-// filepath: src/app/feature/sidebar/sidebar.component.ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
-})
-export class SidebarComponent {}
-```
-
-```html
-<!-- filepath: src/app/feature/sidebar/sidebar.component.html -->
-<saf-side-nav aria-label="Main navigation" [state]="open"></saf-side-nav>
+<!-- Using Saffron components ONLY -->
+<saf-product-header 
+  [product-name]="productName" 
+  aria-label="Main application header">
+  <saf-search-input 
+    slot="search"
+    placeholder="Search..."
+    aria-label="Search application">
+  </saf-search-input>
+</saf-product-header>
 ```
 
 ```scss
-/* filepath: src/app/feature/sidebar/sidebar.component.scss */
+/* filepath: src/app/feature/header/header.component.scss */
+/* Using Saffron design tokens ONLY - NO hardcoded values */
 :host {
   display: block;
-  width: 260px;
+  background-color: var(--saf-color-surface-primary);
+  border-bottom: 1px solid var(--saf-color-border-default);
+  margin-bottom: var(--saf-spacing-md); /* Use token from Figma spacing analysis */
 }
+```
+
+```ts
+// Table component with Wijmo (if selected)
+// filepath: src/app/feature/data-table/data-table.component.ts
+import { Component, OnInit } from '@angular/core';
+import { CollectionView } from '@grapecity/wijmo';
+// Additional Wijmo imports from Saffron MCP
+
+@Component({
+  selector: 'app-data-table',
+  templateUrl: './data-table.component.html',
+  styleUrls: ['./data-table.component.scss']
+})
+export class DataTableComponent implements OnInit {
+  data: CollectionView;
+  
+  ngOnInit() {
+    // Wijmo configuration from Saffron MCP
+    this.data = new CollectionView(this.getData());
+  }
+  
+  getData() {
+    // Data source implementation
+    return [];
+  }
+}
+```
+
+```html
+<!-- filepath: src/app/feature/data-table/data-table.component.html -->
+<!-- Wijmo FlexGrid with Saffron styling -->
+<wj-flex-grid 
+  [itemsSource]="data"
+  [allowSorting]="true"
+  [allowFiltering]="true"
+  class="saffron-table">
+  <wj-flex-grid-column [header]="'Column 1'" [binding]="'field1'"></wj-flex-grid-column>
+  <!-- Additional columns from Saffron MCP configuration -->
+</wj-flex-grid>
 ```
 
 Prompt the user:
 ```
-The [Section Name] has been implemented. Let me verify the build...
+The [Section Name] has been implemented using Saffron components. Let me verify the build...
 
 [After running build command]
 
 ✓ Build completed successfully! 
 
-Now, please provide a screenshot of the implemented section so I can compare it with the Figma design to verify:
-- Colors match the design specifications
-- Spacing and positioning are accurate
-- Font sizes and styles are correct
-- Overall layout aligns with the design
+**VISUAL VERIFICATION REQUIRED:**
 
-Does the section meet design expectations?
-- Should there be any white spaces around it? If yes, specify spacing (e.g., "Add margin: 20px").
-- Are there any visual discrepancies that need adjustment?
+Please provide a screenshot of the implemented [Section Name] so I can compare it with the original Figma design.
+
+I will verify:
+✓ Colors match Saffron design tokens and Figma specifications
+✓ Spacing and positioning are pixel-perfect
+✓ Font sizes and styles match the design
+✓ Component states (hover, active, disabled) are correct
+✓ Overall layout aligns with Figma image
+
+**Provide screenshot now for comparison.**
+
+After verification:
+- Are there any visual discrepancies I should fix?
+- Should there be any white spaces around it? If yes, specify spacing using Saffron tokens.
 ```
 
  
-### **Step 5: Approvals and Refinements**
+### **Step 5: Final Review, Refinements & Visual Validation**
+
+#### **Section-by-Section Iteration**
 - Iterate based on feedback before implementing the next section.
 - Confirm alignment with spacing preferences dynamically at every stage.
- 
+- Fix any discrepancies identified during visual comparison immediately.
+
+#### **Final Visual Validation Protocol**
+
+After ALL sections are implemented, perform comprehensive visual validation:
+
+1. **Request Complete Implementation Screenshots:**
+```
+🎯 FINAL VALIDATION PHASE
+
+All sections have been implemented. To ensure pixel-perfect accuracy:
+
+Please provide screenshots of:
+1. Full page view (desktop)
+2. Each major section close-up
+3. Mobile/tablet views (if responsive design required)
+4. Interactive states (hover, active, disabled) if possible
+
+I will perform detailed comparison with original Figma designs.
+```
+
+2. **Comprehensive Visual Comparison:**
+   - Load all original Figma images downloaded in Step 2
+   - Compare with user's implementation screenshots
+   - Create detailed comparison report (see figma-instructions.md Step 8)
+
+3. **Discrepancy Report & Fixes:**
+
+```
+📊 VISUAL COMPARISON REPORT
+
+Comparison: Figma Design vs Implementation
+
+✅ MATCHES:
+- Header layout and positioning
+- Button colors and sizes  
+- Typography hierarchy
+- Card spacing
+- Overall component alignment
+
+⚠️ DISCREPANCIES FOUND:
+
+| Component | Figma Design | Implementation | Priority | Fix Required |
+|-----------|--------------|----------------|----------|--------------|
+| Table header | 64px height | 68px height | HIGH | Reduce to 64px |
+| Primary button | --saf-color-primary-500 | --saf-color-primary-600 | HIGH | Use correct token |
+| Card padding | 24px all sides | 16px top/bottom | MEDIUM | Adjust padding |
+| Icon size | 20px | 24px | LOW | Resize to 20px |
+
+🔧 FIXING DISCREPANCIES NOW...
+```
+
+4. **Apply Fixes:**
+   - Address each discrepancy immediately
+   - Update Saffron component properties
+   - Verify design token usage
+   - Re-build and re-test
+
+5. **Re-validation:**
+   - Request new screenshots after fixes
+   - Repeat comparison
+   - Continue until pixel-perfect match
+
+6. **Final Approval:**
+```
+✅ FINAL VALIDATION COMPLETE
+
+All sections match Figma design specifications:
+✓ Layout and positioning: Pixel-perfect
+✓ Colors and styling: Exact match (Saffron tokens)
+✓ Typography: Matches design hierarchy
+✓ Spacing: Precise alignment
+✓ Component states: All verified
+✓ Responsive behavior: Tested and validated
+✓ Accessibility: WCAG 2.1 AA compliant
+
+📋 DELIVERABLES:
+- All components implemented with Saffron Design System
+- Build successful with no errors
+- Visual design matches Figma 100%
+- Code follows TypeScript best practices
+- Accessibility requirements met
+- Unit tests included
+
+Implementation is ready for production! 🚀
+```
+
+#### **Additional Quality Checks**
+- Cross-browser testing (if required)
+- Accessibility audit using automated tools
+- Performance metrics validation
+- Code review for TypeScript safety
+- Documentation completeness
+
 ---
 
 # A11y Guidelines
