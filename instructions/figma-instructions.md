@@ -71,13 +71,20 @@ After receiving user-provided screenshot(s), continue with the normal workflow (
 - Link 2: `[URL]` — `[Type: Description]` — `[Image: filename.png]`
 - Link N: `[URL]` — `[Type: Description]` — `[Image: filename.png]`
 
-**STEP 1C: Visual Component Analysis**
+**STEP 1C: Visual Component Analysis (PIXEL-PERFECT REQUIREMENTS)**
 
 - Review downloaded images to identify UI components
+- **MEASURE exact dimensions** of every component using the image
 - List each visible component (buttons, inputs, cards, tables, navigation, etc.)
+- **EXTRACT exact colors** (use color picker or inspect tools)
+- **MEASURE exact spacing** between all elements (margins, padding, gaps)
+- **IDENTIFY exact font sizes, weights, and line heights**
 - Note component hierarchy and relationships
+- **DOCUMENT exact positions** of all elements (left, top, right, bottom)
 - Identify primary implementation target
 - Note technical constraints, dependencies, and design system references
+
+**CRITICAL:** Every measurement must be exact. No assumptions, no approximations.
 
 ---
 
@@ -87,10 +94,10 @@ After receiving user-provided screenshot(s), continue with the normal workflow (
 
 From the downloaded Figma images, create a comprehensive component list:
 
-#### Component Inventory
+#### Component Inventory (WITH EXACT MEASUREMENTS)
 
-| Component Type | Count | Description | Location in Design |
-|----------------|-------|-------------|--------------------|
+| Component Type | Count | Exact Dimensions | Colors | Spacing | Font Details | Position |
+|----------------|-------|------------------|--------|---------|--------------|----------|
 | Buttons | X | Primary, Secondary, etc. | Header, Footer, etc. |
 | Input Fields | X | Text, Search, etc. | Form area |
 | Tables/Grids | X | Data display | Main content |
@@ -276,7 +283,12 @@ For each component to implement:
 
 - [ ] All Figma images downloaded successfully
 - [ ] All components identified and cataloged
+- [ ] **EXACT dimensions measured for every component**
+- [ ] **EXACT colors extracted (hex codes or RGB values)**
+- [ ] **EXACT spacing measured between ALL elements**
+- [ ] **EXACT font sizes, weights, and line heights documented**
 - [ ] Each component mapped to Saffron equivalent
+- [ ] **Saffron component properties configured to match EXACT measurements**
 - [ ] Table implementation approach confirmed (if applicable)
 - [ ] All component states identified from images
 - [ ] Responsive behavior documented from available images
@@ -284,7 +296,7 @@ For each component to implement:
 - [ ] Interaction patterns clear from visual analysis
 - [ ] Edge cases covered
 - [ ] Accessibility requirements noted
-- [ ] Design token mapping complete
+- [ ] Design token mapping complete with EXACT values
 
 #### Clarification Requests (when needed)
 
@@ -316,7 +328,12 @@ Generate comprehensive implementation using **ONLY Saffron Design System compone
 #### Implementation Checklist
 
 - [ ] Component structure using Saffron components (NO native HTML)
-- [ ] Styling using Saffron design tokens (NO hardcoded CSS values)
+- [ ] **EXACT dimensions applied** (width, height matching Figma)
+- [ ] **EXACT colors applied** using closest Saffron design tokens
+- [ ] **EXACT spacing applied** (margins, padding, gaps matching Figma)
+- [ ] **EXACT font styling applied** (size, weight, line-height matching Figma)
+- [ ] **EXACT positioning applied** (alignment, flex/grid properties)
+- [ ] Styling using Saffron design tokens (override if needed for exact match)
 - [ ] State management logic with Saffron patterns
 - [ ] Accessibility attributes from Saffron MCP
 - [ ] Responsive adaptations using Saffron responsive tokens
@@ -324,6 +341,8 @@ Generate comprehensive implementation using **ONLY Saffron Design System compone
 - [ ] For tables: Complete Wijmo configuration if selected
 - [ ] Unit test scaffolding
 - [ ] Inline documentation
+
+**PRIORITY: Exact visual match over strict token usage. If a design token doesn't produce the exact Figma design, override with exact CSS values and document the deviation.**
 
 #### Saffron Component Implementation Template
 
@@ -333,16 +352,29 @@ Generate comprehensive implementation using **ONLY Saffron Design System compone
  * Figma References: [Count] images analyzed
  * Figma Files: [list image files]
  * 
+ * EXACT MEASUREMENTS FROM FIGMA:
+ * - Container: [Width]px × [Height]px
+ * - Padding: [Top]px [Right]px [Bottom]px [Left]px
+ * - Margin: [Top]px [Right]px [Bottom]px [Left]px
+ * - Font: [Size]px / [Weight] / [Line-height]px
+ * - Colors: [Hex codes]
+ * - Border radius: [Value]px
+ * - Spacing between elements: [Gap]px
+ * 
  * Saffron Components Used:
- * - saf-button (Primary actions)
- * - saf-text-field (User input)
- * - saf-card (Container)
+ * - saf-button (Primary actions) - [Exact dimensions]
+ * - saf-text-field (User input) - [Exact dimensions]
+ * - saf-card (Container) - [Exact dimensions]
  * - [etc.]
+ * 
+ * Design Token Overrides (if needed for exact match):
+ * - [List any custom CSS needed to match Figma exactly]
  * 
  * Design Coverage:
  * - States: [X/Y implemented]
  * - Breakpoints: [X/Y implemented]
  * - Accessibility: WCAG 2.1 AA compliant
+ * - Visual Match: 100% pixel-perfect
  */
 
 import { SafButton, SafTextField, SafCard } from '@saffron/react';
@@ -393,20 +425,27 @@ Development complete! To ensure pixel-perfect accuracy, please:
 I will compare it with the original Figma design and identify any discrepancies.
 ```
 
-**STEP 8B: Compare Screenshots**
+**STEP 8B: Compare Screenshots (PIXEL-BY-PIXEL VALIDATION)**
 
 When user provides implementation screenshot:
 
 1. **Load original Figma image(s)** downloaded in Step 1
 2. **Load user's implementation screenshot**
-3. **Perform visual comparison:**
-   - Component positioning and alignment
-   - Spacing (margins, padding, gaps)
-   - Colors and visual styling
-   - Typography (size, weight, line height)
-   - Component sizes and proportions
-   - Interactive states (if multiple screenshots)
-   - Responsive behavior (if multiple breakpoints)
+3. **Perform DETAILED pixel-by-pixel comparison:**
+   - **Component positioning and alignment** (must match exactly to the pixel)
+   - **Exact dimensions** (width and height of every element)
+   - **Spacing** (margins, padding, gaps - measure each one)
+   - **Colors** (compare hex values, check for any shade differences)
+   - **Typography** (size, weight, line height, letter spacing)
+   - **Component sizes and proportions** (button sizes, icon sizes, etc.)
+   - **Border radius, shadows, and effects** (must match exactly)
+   - **Interactive states** (if multiple screenshots)
+   - **Responsive behavior** (if multiple breakpoints)
+   
+4. **Measure discrepancies in pixels:**
+   - Document EXACT pixel differences (e.g., "3px too wide", "2px padding instead of 4px")
+   - No vague descriptions - use precise measurements
+   - Create overlay comparison if possible
 
 **STEP 8C: Document Discrepancies**
 

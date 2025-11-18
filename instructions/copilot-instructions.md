@@ -114,10 +114,13 @@ For accessibility requirements and standards, refer to [sharepoint-instructions.
 
 This step requires:
 1. **Download all Figma designs as images** (NOT JSON)
-2. **Visual component analysis** from downloaded images
-3. **Component identification and cataloging**
-4. **Saffron component mapping** for every UI element
-5. **Table detection and implementation planning** (if tables present)
+2. **MEASURE exact dimensions, colors, spacing, fonts from images**
+3. **Visual component analysis** from downloaded images
+4. **Component identification and cataloging with EXACT measurements**
+5. **Saffron component mapping** for every UI element
+6. **Table detection and implementation planning** (if tables present)
+
+**PIXEL-PERFECT REQUIREMENT:** Every measurement must be exact. Use rulers, measurement tools, or pixel inspection to get precise values.
 
 #### **Figma Image Download & Analysis**
 
@@ -197,7 +200,7 @@ Analyze the downloaded Figma images and define the layout structure with Saffron
 ```
 **FIGMA ANALYSIS COMPLETE:**
 ✅ Downloaded 3 Figma images (desktop.png, component-details.png, mobile.png)
-✅ Component inventory created
+✅ Component inventory created with EXACT measurements
 ✅ Saffron components mapped
 
 **LAYOUT PROPOSAL:**  
@@ -205,42 +208,57 @@ The page design includes the following sections:
 
 1. **Header:** Full-width at the top
    - Figma: Navigation bar with logo, search, and user menu
+   - EXACT MEASUREMENTS:
+     * Height: 64px
+     * Logo width: 120px
+     * Search bar: 320px × 40px
+     * Padding: 16px left/right
+     * Background: #FFFFFF
    - Saffron: <saf-product-header> with <saf-search-input>
    - Components identified: Logo, Search bar, User avatar, Notification badge
 
-2. **Sidebar:** Left-aligned vertical menu panel (260px width)
-   - Figma: Navigation menu with icons and labels
+2. **Sidebar:** Left-aligned vertical menu panel
+   - EXACT MEASUREMENTS:
+     * Width: 260px
+     * Item height: 48px
+     * Icon size: 20px
+     * Padding: 12px 16px
+     * Gap between items: 4px
+     * Background: #F8F9FA
    - Saffron: <saf-side-nav> with <saf-icon> and <saf-text>
    - Components identified: Menu items, Icons, Active state indicator
 
 3. **Main Content:** Responsive grid layout
+   - EXACT MEASUREMENTS:
+     * Container width: calc(100% - 260px)
+     * Padding: 24px
+     * Gap between cards: 16px
    - Figma: Data table with filters and action buttons
    - Saffron: <saf-data-grid> OR Wijmo FlexGrid (awaiting your selection)
    - Components identified: Table, Filter dropdowns, Action buttons, Pagination
 
-4. **Footer:** (if present)
-   - Saffron components mapped
-
-**TABLE IMPLEMENTATION DECISION NEEDED:**
-I detected a data table in the main content area. Please specify:
-- Use saf-data-grid or Wijmo FlexGrid?
-- Required features: [list based on visual analysis]
-
-**SAFFRON COMPONENT SUMMARY:**
-- Buttons: <saf-button> (Primary: 2, Secondary: 3)
-- Inputs: <saf-text-field> (Search: 1, Filters: 2)
-- Table: [Awaiting selection]
-- Cards: <saf-card> (Count: 4)
-- Icons: <saf-icon> (Count: 12)
-- Typography: <saf-text> (Various appearances mapped)
+**SAFFRON COMPONENT SUMMARY WITH EXACT SPECS:**
+- Buttons: <saf-button>
+  * Primary (140px × 40px): 2 instances
+  * Secondary (120px × 40px): 3 instances
+  * Font: 14px/600
+- Inputs: <saf-text-field>
+  * Search (320px × 40px): 1 instance
+  * Filters (200px × 40px): 2 instances
+  * Font: 14px/400
+- Cards: <saf-card>
+  * Dimensions: 360px × 240px
+  * Padding: 20px
+  * Border-radius: 8px
+  * Shadow: 0 2px 8px rgba(0,0,0,0.1)
 
 **Spacing Query:**  
-Should we include white spaces between the following sections?  
-- Header ↔ Sidebar: Yes/No? (Figma shows: [X]px)
-- Sidebar ↔ Main Content: Yes/No? (Figma shows: [X]px)
-- Between cards in grid: [X]px (from Figma)
- 
-Type "yes" to approve, "no" for changes, or specify spacing preferences for refinement.
+Figma shows the following spacing:
+- Header ↔ Sidebar: 0px (no gap)
+- Sidebar ↔ Main Content: 0px (no gap)
+- Between cards in grid: 16px horizontal, 20px vertical
+
+Should I proceed with these EXACT measurements?
 ```
  
 ### **Step 3: Component Mapping**
@@ -346,15 +364,23 @@ Should white spaces be added between sections? Confirm specific spacing values (
    - If build errors occur, fix them immediately before proceeding
    - Ensure TypeScript compilation passes without errors
 
-8. **Visual Verification (CRITICAL):** After successful build, request a screenshot from the user:
+8. **Visual Verification (CRITICAL - PIXEL-PERFECT VALIDATION):** After successful build, request a screenshot from the user:
    - Ask the user to provide a screenshot of the implemented section
-   - **Compare the screenshot with the original downloaded Figma image**
+   - **Compare the screenshot with the original downloaded Figma image PIXEL-BY-PIXEL**
    - Use the visual comparison protocol from figma-instructions.md Step 8
-   - Verify: colors, spacing, fonts, sizes, positioning, component states
-   - Create a discrepancy report if needed
+   - **MEASURE exact discrepancies in pixels** (not just "close enough")
+   - Verify with EXACT measurements:
+     * Colors (compare hex values)
+     * Spacing (measure each gap, margin, padding in pixels)
+     * Fonts (exact size, weight, line-height)
+     * Sizes (exact width and height of components)
+     * Positioning (exact alignment and placement)
+     * Component states
+   - Create a detailed discrepancy report with PIXEL measurements
+   - **NO TOLERANCE for "close enough" - must be pixel-perfect**
    - Request adjustments and fix issues immediately
    - Re-request screenshot after fixes
-   - Repeat until pixel-perfect match achieved
+   - Repeat until 100% pixel-perfect match achieved
 
 #### Example Implementation (Angular with Saffron):
 ```ts
@@ -388,13 +414,26 @@ export class HeaderComponent {
 
 ```scss
 /* filepath: src/app/feature/header/header.component.scss */
-/* Using Saffron design tokens ONLY - NO hardcoded values */
+/* Using Saffron design tokens AND exact Figma measurements */
 :host {
   display: block;
-  background-color: var(--saf-color-surface-primary);
-  border-bottom: 1px solid var(--saf-color-border-default);
-  margin-bottom: var(--saf-spacing-md); /* Use token from Figma spacing analysis */
+  background-color: var(--saf-color-surface-primary); /* or #FFFFFF if exact match needed */
+  border-bottom: 1px solid var(--saf-color-border-default); /* or #E5E5E5 if exact */
+  
+  /* EXACT measurements from Figma */
+  height: 64px; /* Must match Figma exactly */
+  padding: 0 16px; /* Exact padding from Figma */
 }
+
+/* If design tokens don't match Figma exactly, override: */
+saf-product-header {
+  --saf-header-height: 64px; /* Override to match Figma */
+  --saf-header-padding: 16px; /* Override to match Figma */
+}
+
+/* Document any deviations from design tokens */
+/* DEVIATION: Using exact hex #FFFFFF instead of --saf-color-surface-primary */
+/* REASON: Figma design requires pure white, token produces #FAFAFA */
 ```
 
 ```ts
