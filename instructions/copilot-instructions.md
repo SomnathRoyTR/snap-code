@@ -34,13 +34,15 @@ Step 2: Figma Analysis & Layout Proposal
   ☐ Download ALL Figma images (ensure images, not JSON)
   ☐ Save Figma images to workspace
   ☐ Identify all UI components from images
-  ☐ Create component inventory table
+  ☐ Create component inventory table with EXACT measurements
   ☐ Map each component to Saffron Design System
   ☐ Detect tables and determine implementation (saf-data-grid vs Wijmo)
   ☐ Extract visual specifications (colors, spacing, fonts, sizes)
   ☐ Map colors/fonts/spacing to Saffron design tokens
   ☐ Define layout sections
-  ☐ Get user approval on layout and component mapping
+  ☐ **PRESENT COMPLETE ANALYSIS TO USER**
+  ☐ **WAIT FOR USER APPROVAL**
+  ☐ **DO NOT PROCEED WITHOUT APPROVAL**
 
 Step 3: Component Mapping & Code Retrieval
   ☐ Use Saffron MCP to get component code for each mapped component
@@ -52,6 +54,8 @@ Step 3: Component Mapping & Code Retrieval
 
 Step 4: Incremental Implementation
   ☐ Section 1: [Name]
+     ☐ **Present implementation plan to user**
+     ☐ **Wait for approval**
      ☐ Implement with Saffron components only
      ☐ Use design tokens for styling
      ☐ Build verification (no errors)
@@ -60,6 +64,8 @@ Step 4: Incremental Implementation
      ☐ Fix discrepancies
      ☐ Get user approval
   ☐ Section 2: [Name]
+     ☐ **Present implementation plan to user**
+     ☐ **Wait for approval**
      ☐ Implement with Saffron components only
      ☐ Use design tokens for styling
      ☐ Build verification (no errors)
@@ -68,6 +74,8 @@ Step 4: Incremental Implementation
      ☐ Fix discrepancies
      ☐ Get user approval
   ☐ Section 3: [Name]
+     ☐ **Present implementation plan to user**
+     ☐ **Wait for approval**
      ☐ [Same steps as above]
   [Add more sections as needed]
 
@@ -260,6 +268,45 @@ Figma shows the following spacing:
 
 Should I proceed with these EXACT measurements?
 ```
+
+---
+
+### **Step 2A: MANDATORY APPROVAL CHECKPOINT**
+
+**🛑 STOP: Wait for user approval before proceeding to Step 3**
+
+After presenting the complete Figma analysis and component mapping, **ALWAYS** request explicit approval:
+
+```
+📋 FIGMA ANALYSIS & COMPONENT MAPPING COMPLETE
+
+⚠️ APPROVAL REQUIRED BEFORE DEVELOPMENT
+
+I have completed:
+✅ Downloaded and analyzed all Figma images
+✅ Identified all UI components with exact measurements
+✅ Mapped every component to Saffron Design System
+✅ Documented all colors, spacing, fonts, and dimensions
+✅ Determined table implementation approach (if applicable)
+
+PLEASE REVIEW THE ANALYSIS ABOVE AND:
+
+1. Verify all measurements are accurate
+2. Confirm Saffron component mappings are correct
+3. Check for any missing components or states
+4. Approve spacing and layout decisions
+
+👉 RESPOND WITH:
+- "APPROVED" - to proceed with implementation
+- "CHANGES NEEDED" - to request modifications
+- Specific feedback - for any adjustments
+
+⚠️ I will NOT start coding until you provide approval.
+```
+
+**Do NOT proceed to Step 3 (Component Mapping) or Step 4 (Implementation) without user approval.**
+
+---
  
 ### **Step 3: Component Mapping**
 Determine the specific **Saffron components** required for each layout section and include details about props, themes, and accessibility considerations. Confirm spacing preferences again with explicit questions.
@@ -341,7 +388,17 @@ Should white spaces be added between sections? Confirm specific spacing values (
 ```
  
 ## **Step 4: Incremental Implementation**
-1. Implement each section incrementally using **ONLY Saffron Design System components**. For Angular projects, follow Angular conventions:
+
+**⚠️ APPROVAL REQUIRED: Before implementing EACH section, present the plan and wait for approval**
+
+1. **Before implementing each section:**
+   - Present the implementation plan for that specific section
+   - Show exact Saffron components to be used
+   - Show exact measurements and styling
+   - **Wait for user approval**
+   - Only proceed after receiving "APPROVED" or confirmation
+
+2. Implement each section incrementally using **ONLY Saffron Design System components**. For Angular projects, follow Angular conventions:
    - Create a feature module if the page is a standalone area (ng generate module feature --routing).
    - Generate isolated components per section (ng generate component header --module=feature).
    - Use component-scoped styles via styleUrls and TypeScript-safe inputs/outputs.
@@ -476,7 +533,33 @@ export class DataTableComponent implements OnInit {
 </wj-flex-grid>
 ```
 
-Prompt the user:
+Prompt the user BEFORE implementing each section:
+```
+📝 IMPLEMENTATION PLAN FOR [Section Name]
+
+Before I start coding, please review this implementation plan:
+
+**Component Structure:**
+- Saffron Components: [List components]
+- File structure: [List files to be created]
+- Dependencies: [List any dependencies]
+
+**Exact Specifications:**
+- Dimensions: [Width × Height]
+- Colors: [Hex codes]
+- Spacing: [Exact padding/margin values]
+- Typography: [Font size/weight/line-height]
+
+**Code to be created:**
+1. [component].component.ts
+2. [component].component.html  
+3. [component].component.scss
+4. [component].component.spec.ts
+
+👉 Type 'APPROVED' to proceed with implementation, or provide feedback.
+```
+
+After receiving approval and completing implementation:
 ```
 The [Section Name] has been implemented using Saffron components. Let me verify the build...
 
@@ -892,22 +975,37 @@ Below are accessibility rules for each listed component. These rules ensure comp
 ## **Constraints**
 1. All code must be **TypeScript-safe** and comply with project scalability, accessibility, and responsiveness rules.
 2. Avoid deviations from the **Saffron** unless explicitly authorized.
-3. Proactively confirm spacing rules at every implementation stage.
+3. **MANDATORY: Get user approval after Figma analysis and component mapping before any coding.**
+4. **MANDATORY: Get user approval before implementing each section.**
+5. Proactively confirm spacing rules at every implementation stage.
+6. **NEVER proceed to implementation without explicit user approval.**
  
 ---
  
 ## **Example Feedback Pattern**
-1. Approve or request layout tweaks (e.g., "Adjust sidebar spacing").
-2. Confirm component props and behavior (e.g., "Enable `isSearchable` for Header").
-3. Validate spacing rules for each section (e.g., "Include margin between content and Sidebar").
+1. **After Figma Analysis:** Present complete analysis and wait for "APPROVED" before proceeding.
+2. **Before Implementation:** Present implementation plan for each section and wait for approval.
+3. Approve or request layout tweaks (e.g., "Adjust sidebar spacing").
+4. Confirm component props and behavior (e.g., "Enable `isSearchable` for Header").
+5. Validate spacing rules for each section (e.g., "Include margin between content and Sidebar").
+6. **After Implementation:** Request screenshot and validate against Figma.
  
 ---
  
 ## **Collaboration Guidelines**
 1. **Incremental Progress:** Implement one section at a time for easier reviews.
 2. **Modular Design:** Divide page logic cleanly into reusable components.
-3. **Feedback Loop:** Seek explicit user approval at every stage, focusing on spacing and component specifications.
+3. **Approval Loop:** 
+   - **STOP after Figma analysis** - wait for approval
+   - **STOP before each section implementation** - wait for approval  
+   - **STOP after each section completion** - wait for screenshot validation
+4. **Feedback Loop:** Seek explicit user approval at every stage, focusing on spacing and component specifications.
+5. **Never assume approval** - always wait for explicit confirmation.
  
 --- 
 ## **Notes**
-Always ask the user about spacing explicitly. If unclear preferences exist, direct them to clarify decisions before moving forward. Adapt implementation dynamically based on responses.
+- **CRITICAL: Always wait for user approval after Figma analysis before starting any code.**
+- **CRITICAL: Always wait for user approval before implementing each section.**
+- Always ask the user about spacing explicitly. If unclear preferences exist, direct them to clarify decisions before moving forward. 
+- Adapt implementation dynamically based on responses.
+- Never proceed with assumptions - confirm everything with the user first.
