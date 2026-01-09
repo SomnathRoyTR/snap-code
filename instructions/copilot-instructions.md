@@ -34,13 +34,15 @@ Step 2: Figma Analysis & Layout Proposal
   ☐ Download ALL Figma images (ensure images, not JSON)
   ☐ Save Figma images to workspace
   ☐ Identify all UI components from images
-  ☐ Create component inventory table
+  ☐ Create component inventory table with EXACT measurements
   ☐ Map each component to Saffron Design System
   ☐ Detect tables and determine implementation (saf-data-grid vs Wijmo)
   ☐ Extract visual specifications (colors, spacing, fonts, sizes)
   ☐ Map colors/fonts/spacing to Saffron design tokens
   ☐ Define layout sections
-  ☐ Get user approval on layout and component mapping
+  ☐ **PRESENT COMPLETE ANALYSIS TO USER**
+  ☐ **WAIT FOR USER APPROVAL**
+  ☐ **DO NOT PROCEED WITHOUT APPROVAL**
 
 Step 3: Component Mapping & Code Retrieval
   ☐ Use Saffron MCP to get component code for each mapped component
@@ -52,6 +54,8 @@ Step 3: Component Mapping & Code Retrieval
 
 Step 4: Incremental Implementation
   ☐ Section 1: [Name]
+     ☐ **Present implementation plan to user**
+     ☐ **Wait for approval**
      ☐ Implement with Saffron components only
      ☐ Use design tokens for styling
      ☐ Build verification (no errors)
@@ -60,6 +64,8 @@ Step 4: Incremental Implementation
      ☐ Fix discrepancies
      ☐ Get user approval
   ☐ Section 2: [Name]
+     ☐ **Present implementation plan to user**
+     ☐ **Wait for approval**
      ☐ Implement with Saffron components only
      ☐ Use design tokens for styling
      ☐ Build verification (no errors)
@@ -68,6 +74,8 @@ Step 4: Incremental Implementation
      ☐ Fix discrepancies
      ☐ Get user approval
   ☐ Section 3: [Name]
+     ☐ **Present implementation plan to user**
+     ☐ **Wait for approval**
      ☐ [Same steps as above]
   [Add more sections as needed]
 
@@ -114,10 +122,13 @@ For accessibility requirements and standards, refer to [sharepoint-instructions.
 
 This step requires:
 1. **Download all Figma designs as images** (NOT JSON)
-2. **Visual component analysis** from downloaded images
-3. **Component identification and cataloging**
-4. **Saffron component mapping** for every UI element
-5. **Table detection and implementation planning** (if tables present)
+2. **MEASURE exact dimensions, colors, spacing, fonts from images**
+3. **Visual component analysis** from downloaded images
+4. **Component identification and cataloging with EXACT measurements**
+5. **Saffron component mapping** for every UI element
+6. **Table detection and implementation planning** (if tables present)
+
+**PIXEL-PERFECT REQUIREMENT:** Every measurement must be exact. Use rulers, measurement tools, or pixel inspection to get precise values.
 
 #### **Figma Image Download & Analysis**
 
@@ -197,7 +208,7 @@ Analyze the downloaded Figma images and define the layout structure with Saffron
 ```
 **FIGMA ANALYSIS COMPLETE:**
 ✅ Downloaded 3 Figma images (desktop.png, component-details.png, mobile.png)
-✅ Component inventory created
+✅ Component inventory created with EXACT measurements
 ✅ Saffron components mapped
 
 **LAYOUT PROPOSAL:**  
@@ -205,43 +216,97 @@ The page design includes the following sections:
 
 1. **Header:** Full-width at the top
    - Figma: Navigation bar with logo, search, and user menu
+   - EXACT MEASUREMENTS:
+     * Height: 64px
+     * Logo width: 120px
+     * Search bar: 320px × 40px
+     * Padding: 16px left/right
+     * Background: #FFFFFF
    - Saffron: <saf-product-header> with <saf-search-input>
    - Components identified: Logo, Search bar, User avatar, Notification badge
 
-2. **Sidebar:** Left-aligned vertical menu panel (260px width)
-   - Figma: Navigation menu with icons and labels
+2. **Sidebar:** Left-aligned vertical menu panel
+   - EXACT MEASUREMENTS:
+     * Width: 260px
+     * Item height: 48px
+     * Icon size: 20px
+     * Padding: 12px 16px
+     * Gap between items: 4px
+     * Background: #F8F9FA
    - Saffron: <saf-side-nav> with <saf-icon> and <saf-text>
    - Components identified: Menu items, Icons, Active state indicator
 
 3. **Main Content:** Responsive grid layout
+   - EXACT MEASUREMENTS:
+     * Container width: calc(100% - 260px)
+     * Padding: 24px
+     * Gap between cards: 16px
    - Figma: Data table with filters and action buttons
    - Saffron: <saf-data-grid> OR Wijmo FlexGrid (awaiting your selection)
    - Components identified: Table, Filter dropdowns, Action buttons, Pagination
 
-4. **Footer:** (if present)
-   - Saffron components mapped
-
-**TABLE IMPLEMENTATION DECISION NEEDED:**
-I detected a data table in the main content area. Please specify:
-- Use saf-data-grid or Wijmo FlexGrid?
-- Required features: [list based on visual analysis]
-
-**SAFFRON COMPONENT SUMMARY:**
-- Buttons: <saf-button> (Primary: 2, Secondary: 3)
-- Inputs: <saf-text-field> (Search: 1, Filters: 2)
-- Table: [Awaiting selection]
-- Cards: <saf-card> (Count: 4)
-- Icons: <saf-icon> (Count: 12)
-- Typography: <saf-text> (Various appearances mapped)
+**SAFFRON COMPONENT SUMMARY WITH EXACT SPECS:**
+- Buttons: <saf-button>
+  * Primary (140px × 40px): 2 instances
+  * Secondary (120px × 40px): 3 instances
+  * Font: 14px/600
+- Inputs: <saf-text-field>
+  * Search (320px × 40px): 1 instance
+  * Filters (200px × 40px): 2 instances
+  * Font: 14px/400
+- Cards: <saf-card>
+  * Dimensions: 360px × 240px
+  * Padding: 20px
+  * Border-radius: 8px
+  * Shadow: 0 2px 8px rgba(0,0,0,0.1)
 
 **Spacing Query:**  
-Should we include white spaces between the following sections?  
-- Header ↔ Sidebar: Yes/No? (Figma shows: [X]px)
-- Sidebar ↔ Main Content: Yes/No? (Figma shows: [X]px)
-- Between cards in grid: [X]px (from Figma)
- 
-Type "yes" to approve, "no" for changes, or specify spacing preferences for refinement.
+Figma shows the following spacing:
+- Header ↔ Sidebar: 0px (no gap)
+- Sidebar ↔ Main Content: 0px (no gap)
+- Between cards in grid: 16px horizontal, 20px vertical
+
+Should I proceed with these EXACT measurements?
 ```
+
+---
+
+### **Step 2A: MANDATORY APPROVAL CHECKPOINT**
+
+**🛑 STOP: Wait for user approval before proceeding to Step 3**
+
+After presenting the complete Figma analysis and component mapping, **ALWAYS** request explicit approval:
+
+```
+📋 FIGMA ANALYSIS & COMPONENT MAPPING COMPLETE
+
+⚠️ APPROVAL REQUIRED BEFORE DEVELOPMENT
+
+I have completed:
+✅ Downloaded and analyzed all Figma images
+✅ Identified all UI components with exact measurements
+✅ Mapped every component to Saffron Design System
+✅ Documented all colors, spacing, fonts, and dimensions
+✅ Determined table implementation approach (if applicable)
+
+PLEASE REVIEW THE ANALYSIS ABOVE AND:
+
+1. Verify all measurements are accurate
+2. Confirm Saffron component mappings are correct
+3. Check for any missing components or states
+4. Approve spacing and layout decisions
+
+👉 RESPOND WITH:
+- "APPROVED" - to proceed with implementation
+- "CHANGES NEEDED" - to request modifications
+- Specific feedback - for any adjustments
+
+⚠️ I will NOT start coding until you provide approval.
+```
+
+**Do NOT proceed to Step 3 (Component Mapping) or Step 4 (Implementation) without user approval.**
+
+---
  
 ### **Step 3: Component Mapping**
 Determine the specific **Saffron components** required for each layout section and include details about props, themes, and accessibility considerations. Confirm spacing preferences again with explicit questions.
@@ -323,7 +388,17 @@ Should white spaces be added between sections? Confirm specific spacing values (
 ```
  
 ## **Step 4: Incremental Implementation**
-1. Implement each section incrementally using **ONLY Saffron Design System components**. For Angular projects, follow Angular conventions:
+
+**⚠️ APPROVAL REQUIRED: Before implementing EACH section, present the plan and wait for approval**
+
+1. **Before implementing each section:**
+   - Present the implementation plan for that specific section
+   - Show exact Saffron components to be used
+   - Show exact measurements and styling
+   - **Wait for user approval**
+   - Only proceed after receiving "APPROVED" or confirmation
+
+2. Implement each section incrementally using **ONLY Saffron Design System components**. For Angular projects, follow Angular conventions:
    - Create a feature module if the page is a standalone area (ng generate module feature --routing).
    - Generate isolated components per section (ng generate component header --module=feature).
    - Use component-scoped styles via styleUrls and TypeScript-safe inputs/outputs.
@@ -346,15 +421,23 @@ Should white spaces be added between sections? Confirm specific spacing values (
    - If build errors occur, fix them immediately before proceeding
    - Ensure TypeScript compilation passes without errors
 
-8. **Visual Verification (CRITICAL):** After successful build, request a screenshot from the user:
+8. **Visual Verification (CRITICAL - PIXEL-PERFECT VALIDATION):** After successful build, request a screenshot from the user:
    - Ask the user to provide a screenshot of the implemented section
-   - **Compare the screenshot with the original downloaded Figma image**
+   - **Compare the screenshot with the original downloaded Figma image PIXEL-BY-PIXEL**
    - Use the visual comparison protocol from figma-instructions.md Step 8
-   - Verify: colors, spacing, fonts, sizes, positioning, component states
-   - Create a discrepancy report if needed
+   - **MEASURE exact discrepancies in pixels** (not just "close enough")
+   - Verify with EXACT measurements:
+     * Colors (compare hex values)
+     * Spacing (measure each gap, margin, padding in pixels)
+     * Fonts (exact size, weight, line-height)
+     * Sizes (exact width and height of components)
+     * Positioning (exact alignment and placement)
+     * Component states
+   - Create a detailed discrepancy report with PIXEL measurements
+   - **NO TOLERANCE for "close enough" - must be pixel-perfect**
    - Request adjustments and fix issues immediately
    - Re-request screenshot after fixes
-   - Repeat until pixel-perfect match achieved
+   - Repeat until 100% pixel-perfect match achieved
 
 #### Example Implementation (Angular with Saffron):
 ```ts
@@ -388,13 +471,26 @@ export class HeaderComponent {
 
 ```scss
 /* filepath: src/app/feature/header/header.component.scss */
-/* Using Saffron design tokens ONLY - NO hardcoded values */
+/* Using Saffron design tokens AND exact Figma measurements */
 :host {
   display: block;
-  background-color: var(--saf-color-surface-primary);
-  border-bottom: 1px solid var(--saf-color-border-default);
-  margin-bottom: var(--saf-spacing-md); /* Use token from Figma spacing analysis */
+  background-color: var(--saf-color-surface-primary); /* or #FFFFFF if exact match needed */
+  border-bottom: 1px solid var(--saf-color-border-default); /* or #E5E5E5 if exact */
+  
+  /* EXACT measurements from Figma */
+  height: 64px; /* Must match Figma exactly */
+  padding: 0 16px; /* Exact padding from Figma */
 }
+
+/* If design tokens don't match Figma exactly, override: */
+saf-product-header {
+  --saf-header-height: 64px; /* Override to match Figma */
+  --saf-header-padding: 16px; /* Override to match Figma */
+}
+
+/* Document any deviations from design tokens */
+/* DEVIATION: Using exact hex #FFFFFF instead of --saf-color-surface-primary */
+/* REASON: Figma design requires pure white, token produces #FAFAFA */
 ```
 
 ```ts
@@ -437,7 +533,33 @@ export class DataTableComponent implements OnInit {
 </wj-flex-grid>
 ```
 
-Prompt the user:
+Prompt the user BEFORE implementing each section:
+```
+📝 IMPLEMENTATION PLAN FOR [Section Name]
+
+Before I start coding, please review this implementation plan:
+
+**Component Structure:**
+- Saffron Components: [List components]
+- File structure: [List files to be created]
+- Dependencies: [List any dependencies]
+
+**Exact Specifications:**
+- Dimensions: [Width × Height]
+- Colors: [Hex codes]
+- Spacing: [Exact padding/margin values]
+- Typography: [Font size/weight/line-height]
+
+**Code to be created:**
+1. [component].component.ts
+2. [component].component.html  
+3. [component].component.scss
+4. [component].component.spec.ts
+
+👉 Type 'APPROVED' to proceed with implementation, or provide feedback.
+```
+
+After receiving approval and completing implementation:
 ```
 The [Section Name] has been implemented using Saffron components. Let me verify the build...
 
@@ -853,22 +975,37 @@ Below are accessibility rules for each listed component. These rules ensure comp
 ## **Constraints**
 1. All code must be **TypeScript-safe** and comply with project scalability, accessibility, and responsiveness rules.
 2. Avoid deviations from the **Saffron** unless explicitly authorized.
-3. Proactively confirm spacing rules at every implementation stage.
+3. **MANDATORY: Get user approval after Figma analysis and component mapping before any coding.**
+4. **MANDATORY: Get user approval before implementing each section.**
+5. Proactively confirm spacing rules at every implementation stage.
+6. **NEVER proceed to implementation without explicit user approval.**
  
 ---
  
 ## **Example Feedback Pattern**
-1. Approve or request layout tweaks (e.g., "Adjust sidebar spacing").
-2. Confirm component props and behavior (e.g., "Enable `isSearchable` for Header").
-3. Validate spacing rules for each section (e.g., "Include margin between content and Sidebar").
+1. **After Figma Analysis:** Present complete analysis and wait for "APPROVED" before proceeding.
+2. **Before Implementation:** Present implementation plan for each section and wait for approval.
+3. Approve or request layout tweaks (e.g., "Adjust sidebar spacing").
+4. Confirm component props and behavior (e.g., "Enable `isSearchable` for Header").
+5. Validate spacing rules for each section (e.g., "Include margin between content and Sidebar").
+6. **After Implementation:** Request screenshot and validate against Figma.
  
 ---
  
 ## **Collaboration Guidelines**
 1. **Incremental Progress:** Implement one section at a time for easier reviews.
 2. **Modular Design:** Divide page logic cleanly into reusable components.
-3. **Feedback Loop:** Seek explicit user approval at every stage, focusing on spacing and component specifications.
+3. **Approval Loop:** 
+   - **STOP after Figma analysis** - wait for approval
+   - **STOP before each section implementation** - wait for approval  
+   - **STOP after each section completion** - wait for screenshot validation
+4. **Feedback Loop:** Seek explicit user approval at every stage, focusing on spacing and component specifications.
+5. **Never assume approval** - always wait for explicit confirmation.
  
 --- 
 ## **Notes**
-Always ask the user about spacing explicitly. If unclear preferences exist, direct them to clarify decisions before moving forward. Adapt implementation dynamically based on responses.
+- **CRITICAL: Always wait for user approval after Figma analysis before starting any code.**
+- **CRITICAL: Always wait for user approval before implementing each section.**
+- Always ask the user about spacing explicitly. If unclear preferences exist, direct them to clarify decisions before moving forward. 
+- Adapt implementation dynamically based on responses.
+- Never proceed with assumptions - confirm everything with the user first.
